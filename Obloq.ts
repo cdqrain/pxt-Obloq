@@ -133,15 +133,13 @@ namespace Obloq {
         return OBLOQ_ERROR_TYPE_IS_SUCCE
     }
 
-    //% advanced=true shim=Obloq::obloqSetTxBufferSize
-    function obloqSetTxBufferSize(size: number): void {
-        return 
+     function obloqSetTxBufferSize(size: number): void {
+        serial.setTxBufferSize(size)
     }
 
-    //% advanced=true shim=Obloq::obloqSetRxBufferSize
     function obloqSetRxBufferSize(size: number): void {
-        return 
-    }    
+        serial.setRxBufferSize(size)
+    } 
 
     //% advanced=true shim=Obloq::obloqRxBufferedSize
     function obloqRxBufferedSize(): number {
@@ -271,6 +269,7 @@ namespace Obloq {
             OBLOQ_SERIAL_RX,
             BaudRate.BaudRate9600
         )
+
         obloqSetTxBufferSize(300)
         obloqSetRxBufferSize(300)
         obloqWriteString("\r")
@@ -844,7 +843,6 @@ namespace Obloq {
                 obloqWriteString("|1|1|\r")
                 basic.pause(100)
             }
-            obloqreadString(obloqgetRxBufferSize()) //Clear serial port cache
             obloqWriteString("|2|1|" + OBLOQ_WIFI_SSID + "," + OBLOQ_WIFI_PASSWORD + "|\r") //Send wifi account and password instructions
             OBLOQ_WIFI_CONNECT_FIRST = OBLOQ_BOOL_TYPE_IS_FALSE
         }
