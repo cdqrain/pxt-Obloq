@@ -19,5 +19,9 @@
         "mqttMoretest.ts",
         "httpTest.ts"
     ],
-    "public": true
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
 }
