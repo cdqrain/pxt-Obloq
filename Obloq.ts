@@ -185,59 +185,59 @@ namespace Obloq {
         return
     }    
 
-    function Obloq_wifi_icon_display(): void { 
-        switch (OBLOQ_WIFI_ICON) { 
-            case 1: {
-                basic.clearScreen()
-                led.plot(0, 4)
-                OBLOQ_WIFI_ICON += 1
-            } break;
-            case 2: { 
-                led.plot(0, 2)
-                led.plot(1, 2)
-                led.plot(2, 3)
-                led.plot(2, 4)
-                OBLOQ_WIFI_ICON += 1
-            } break;
-            case 3: {
-                led.plot(0, 0)
-                led.plot(1, 0)
-                led.plot(2, 0)
-                led.plot(3, 1)
-                led.plot(4, 2)
-                led.plot(4, 3)
-                led.plot(4, 4)
-                OBLOQ_WIFI_ICON = 1
-            } break;
-        }
-    }
+    // function Obloq_wifi_icon_display(): void { 
+    //     switch (OBLOQ_WIFI_ICON) { 
+    //         case 1: {
+    //             basic.clearScreen()
+    //             led.plot(0, 4)
+    //             OBLOQ_WIFI_ICON += 1
+    //         } break;
+    //         case 2: { 
+    //             led.plot(0, 2)
+    //             led.plot(1, 2)
+    //             led.plot(2, 3)
+    //             led.plot(2, 4)
+    //             OBLOQ_WIFI_ICON += 1
+    //         } break;
+    //         case 3: {
+    //             led.plot(0, 0)
+    //             led.plot(1, 0)
+    //             led.plot(2, 0)
+    //             led.plot(3, 1)
+    //             led.plot(4, 2)
+    //             led.plot(4, 3)
+    //             led.plot(4, 4)
+    //             OBLOQ_WIFI_ICON = 1
+    //         } break;
+    //     }
+    // }
 
-    function Obloq_mqtt_icon_display(): void { 
-        switch (OBLOQ_MQTT_ICON) { 
-            case 1: {
-                basic.clearScreen()
-                led.plot(4, 0)
-                OBLOQ_MQTT_ICON += 1
-            } break;
-            case 2: { 
-                led.plot(2, 0)
-                led.plot(2, 1)
-                led.plot(3, 2)
-                led.plot(4, 2)
-                OBLOQ_MQTT_ICON += 1
-            } break;
-            case 3: {
-                led.plot(0, 0)
-                led.plot(0, 1)
-                led.plot(0, 2)
-                led.plot(1, 3)
-                led.plot(2, 4)
-                led.plot(3, 4)
-                led.plot(4, 4)
-                OBLOQ_MQTT_ICON = 1
-            } break;
-        }
-    }
+    // function Obloq_mqtt_icon_display(): void { 
+    //     switch (OBLOQ_MQTT_ICON) { 
+    //         case 1: {
+    //             basic.clearScreen()
+    //             led.plot(4, 0)
+    //             OBLOQ_MQTT_ICON += 1
+    //         } break;
+    //         case 2: { 
+    //             led.plot(2, 0)
+    //             led.plot(2, 1)
+    //             led.plot(3, 2)
+    //             led.plot(4, 2)
+    //             OBLOQ_MQTT_ICON += 1
+    //         } break;
+    //         case 3: {
+    //             led.plot(0, 0)
+    //             led.plot(0, 1)
+    //             led.plot(0, 2)
+    //             led.plot(1, 3)
+    //             led.plot(2, 4)
+    //             led.plot(3, 4)
+    //             led.plot(4, 4)
+    //             OBLOQ_MQTT_ICON = 1
+    //         } break;
+    //     }
+    // }
 
     function Obloq_mark_reset(type: string): void {
         if (type == "wifi") {
@@ -286,26 +286,30 @@ namespace Obloq {
         if (OBLOQ_DEBUG) { basic.showNumber(ret) }
         switch (ret) { 
             case OBLOQ_ERROR_TYPE_IS_SUCCE: {
-                basic.showIcon(IconNames.Yes)
-                basic.pause(500)
-                basic.clearScreen()
+                // basic.showIcon(IconNames.Yes)
+                // basic.pause(500)
+                // basic.clearScreen()
+               
                 OBLOQ_WIFI_CONNECTED = OBLOQ_BOOL_TYPE_IS_TRUE
              } break
             case OBLOQ_ERROR_TYPE_IS_WIFI_CONNECT_TIMEOUT: { 
-                basic.showIcon(IconNames.No)
-                basic.pause(500)
+                // basic.showIcon(IconNames.No)
+                // basic.pause(500)
+                
                 OBLOQ_WRONG_TYPE = "wifi connect timeout"
                 return
             } break
             case OBLOQ_ERROR_TYPE_IS_WIFI_CONNECT_FAILURE: { 
-                basic.showIcon(IconNames.No)
-                basic.pause(500)
+                // basic.showIcon(IconNames.No)
+                // basic.pause(500)
+                
                 OBLOQ_WRONG_TYPE = "wifi connect failure"
                 return
             } break
             case OBLOQ_ERROR_TYPE_IS_ERR: { 
-                basic.showNumber(ret)
-                basic.showIcon(IconNames.No)
+                // basic.showNumber(ret)
+                // basic.showIcon(IconNames.No)
+                
                 while (OBLOQ_BOOL_TYPE_IS_TRUE) { basic.pause(10000) }
             } break
         }
@@ -333,26 +337,30 @@ namespace Obloq {
             if (OBLOQ_DEBUG) { basic.showNumber(ret) }
             switch (ret) {
                 case OBLOQ_ERROR_TYPE_IS_SUCCE: {
-                    basic.showIcon(IconNames.Yes)
-                    basic.pause(500)
-                    basic.clearScreen()
+                    // basic.showIcon(IconNames.Yes)
+                    // basic.pause(500)
+                    // basic.clearScreen()
+                    
                     OBLOQ_WIFI_CONNECTED = OBLOQ_BOOL_TYPE_IS_TRUE
                 } break
                 case OBLOQ_ERROR_TYPE_IS_WIFI_CONNECT_TIMEOUT: {
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                    
                     OBLOQ_WRONG_TYPE = "wifi connect timeout"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_WIFI_CONNECT_FAILURE: {
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                    
                     OBLOQ_WRONG_TYPE = "wifi connect failure"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_ERR: {
-                    basic.showNumber(ret)
-                    basic.showIcon(IconNames.No)
+                    // basic.showNumber(ret)
+                    // basic.showIcon(IconNames.No)
+                   
                     while (OBLOQ_BOOL_TYPE_IS_TRUE) { basic.pause(10000) }
                 } break
             }
@@ -361,37 +369,43 @@ namespace Obloq {
             ret = Obloq_connect_iot();
             switch (ret) {
                 case OBLOQ_ERROR_TYPE_IS_SUCCE: {
-                    basic.showIcon(IconNames.Yes)
-                    basic.pause(500)
-                    basic.clearScreen()
+                    // basic.showIcon(IconNames.Yes)
+                    // basic.pause(500)
+                    // basic.clearScreen()
+                   
                 } break
                 case OBLOQ_ERROR_TYPE_IS_MQTT_SUBTOPIC_TIMEOUT: {
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                    
                     OBLOQ_WRONG_TYPE = "mqtt subtopic timeout"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_MQTT_SUBTOPIC_FAILURE: { 
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                    
                     OBLOQ_WRONG_TYPE = "mqtt subtopic failure"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_MQTT_CONNECT_TIMEOUT: {
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                    
                     OBLOQ_WRONG_TYPE = "mqtt connect timeout"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_MQTT_CONNECT_FAILURE: {
-                    basic.showIcon(IconNames.No)
-                    basic.pause(500)
+                    // basic.showIcon(IconNames.No)
+                    // basic.pause(500)
+                  
                     OBLOQ_WRONG_TYPE = "mqtt connect failure"
                     return
                 } break
                 case OBLOQ_ERROR_TYPE_IS_ERR: {
-                    basic.showNumber(ret)
-                    basic.showIcon(IconNames.No)
+                    // basic.showNumber(ret)
+                    // basic.showIcon(IconNames.No)
+                    
                     while (OBLOQ_BOOL_TYPE_IS_TRUE) { basic.pause(10000) }
                 } break
             }
@@ -838,7 +852,8 @@ namespace Obloq {
                 Obloq_serial_init()
             }
             //show icon
-            Obloq_wifi_icon_display()
+            //Obloq_wifi_icon_display()
+            
             for (let i = 0; i < 3; i++) {
                 obloqWriteString("|1|1|\r")
                 basic.pause(100)
@@ -849,7 +864,8 @@ namespace Obloq {
         
         while (OBLOQ_BOOL_TYPE_IS_TRUE) {
             if ((timeout_count_now+1) % 3 == 0) { 
-                Obloq_wifi_icon_display()
+                //Obloq_wifi_icon_display()
+                
             }
             if (OBLOQ_ANSWER_CMD == "WifiConnected") {
                 OBLOQ_WIFI_IP = OBLOQ_ANSWER_CONTENT
@@ -889,19 +905,29 @@ namespace Obloq {
 
         while (OBLOQ_BOOL_TYPE_IS_TRUE) {
             basic.pause(100)
-            if (OBLOQ_ANSWER_CMD == "200") {//http请求成功
-                return OBLOQ_ANSWER_CONTENT //返回消息
-            } else if (OBLOQ_ANSWER_CMD == "-1") {//获取数据失败
-                Obloq_http_wrong_animation("requestFailed")
+            switch(OBLOQ_ANSWER_CMD){
+            case "-1" :
                 return OBLOQ_STR_TYPE_IS_NONE
-            } else if (OBLOQ_ANSWER_CMD == "1") {//http请求字段错误
-                Obloq_http_wrong_animation("requestFailed")
+                break;
+            case "1":
                 return OBLOQ_STR_TYPE_IS_NONE
+                break;
+            default:
+                return OBLOQ_ANSWER_CONTENT;
             }
 
+            // if (OBLOQ_ANSWER_CMD == "200") {//http请求成功
+            //     return OBLOQ_ANSWER_CONTENT //返回消息
+            // } else if (OBLOQ_ANSWER_CMD == "-1") {//获取数据失败
+            //     //Obloq_http_wrong_animation("requestFailed")
+            //     return OBLOQ_STR_TYPE_IS_NONE
+            // } else if (OBLOQ_ANSWER_CMD == "1") {//http请求字段错误
+            //     //Obloq_http_wrong_animation("requestFailed")
+            //     return OBLOQ_STR_TYPE_IS_NONE
+            // }
             _timeout += 1
             if (_timeout > timeout) {
-                Obloq_http_wrong_animation("timeOut")
+                //Obloq_http_wrong_animation("timeOut")
                 return OBLOQ_STR_TYPE_IS_NONE
             }
         }
@@ -909,41 +935,41 @@ namespace Obloq {
         return OBLOQ_STR_TYPE_IS_NONE
     }
 
-    function Obloq_http_wrong_animation(wrongType: string): void { 
-        if (wrongType == "requestFailed") {  //http 请求失败或者字段错误动画
-            basic.showIcon(IconNames.No, 10)
-            basic.pause(500)
-            for (let i = 0; i < 3; i++) { 
-                basic.clearScreen()
-                basic.pause(100)
-                basic.showIcon(IconNames.No, 10)
-                basic.pause(50)
-            }    
-        } else if (wrongType == "timeOut") { //http 请求超时动画
-            basic.showLeds(`
-                . . # . .
-                . . # . .
-                . . # . .
-                . . . . .
-                . . # . .
-                `, 10)
-            basic.pause(500)
-            for (let i = 0; i < 3; i++) { 
-                basic.clearScreen()
-                basic.pause(100)
-                basic.showLeds(`
-                    . . # . .
-                    . . # . .
-                    . . # . .
-                    . . . . .
-                    . . # . .
-                    `, 10)
-                basic.pause(50)
-            }  
-        }
-        basic.pause(150)
-        basic.clearScreen()
-    }
+    // function Obloq_http_wrong_animation(wrongType: string): void { 
+    //     if (wrongType == "requestFailed") {  //http 请求失败或者字段错误动画
+    //         basic.showIcon(IconNames.No, 10)
+    //         basic.pause(500)
+    //         for (let i = 0; i < 3; i++) { 
+    //             basic.clearScreen()
+    //             basic.pause(100)
+    //             basic.showIcon(IconNames.No, 10)
+    //             basic.pause(50)
+    //         }    
+    //     } else if (wrongType == "timeOut") { //http 请求超时动画
+    //         basic.showLeds(`
+    //             . . # . .
+    //             . . # . .
+    //             . . # . .
+    //             . . . . .
+    //             . . # . .
+    //             `, 10)
+    //         basic.pause(500)
+    //         for (let i = 0; i < 3; i++) { 
+    //             basic.clearScreen()
+    //             basic.pause(100)
+    //             basic.showLeds(`
+    //                 . . # . .
+    //                 . . # . .
+    //                 . . # . .
+    //                 . . . . .
+    //                 . . # . .
+    //                 `, 10)
+    //             basic.pause(50)
+    //         }  
+    //     }
+    //     basic.pause(150)
+    //     basic.clearScreen()
+    // }
 
     /**
      * The HTTP get request.url(string):URL:time(ms): private long maxWait
@@ -1071,7 +1097,8 @@ namespace Obloq {
 
         while (_timeout < 1000) { 
             if (_timeout % 50 == 0) { 
-                Obloq_mqtt_icon_display()
+                //Obloq_mqtt_icon_display()
+                
                 iconnum += 1;
             }
             if (OBLOQ_ANSWER_CMD == "MqttConneted") {
@@ -1094,7 +1121,8 @@ namespace Obloq {
             __timeout = _timeout + 2000
             while (_timeout < __timeout) {
                 if (_timeout % 50 == 0) {
-                    Obloq_mqtt_icon_display()
+                    //Obloq_mqtt_icon_display()
+                    
                     iconnum += 1
                 }
                 if (iconnum > 3) {//动画一次以上
